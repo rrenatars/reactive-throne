@@ -9,8 +9,8 @@ export const SIZES = {
     },
 
     PLAYER: {
-        WIDTH: 48,
-        HEIGHT: 47,
+        WIDTH: 30,
+        HEIGHT: 33,
     }
 }
 
@@ -20,5 +20,7 @@ export const LAYERS = {
 }
 
 export const SPRITES = {
-    PLAYER: 'Player'
+    PLAYER: 'Player',
+    REVOLVER: 'Revolver',
+    BULLET: 'Bullet'
 }

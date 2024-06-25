@@ -13,10 +13,13 @@ export class Level extends Phaser.Scene {
         this.load.image(TILES.LEVEL, 'src/assets/map/level1.png');
         this.load.tilemapTiledJSON('map', 'src/assets/map/level1/level1.json')
 
-        this.load.spritesheet(SPRITES.PLAYER, 'src/assets/characters/frog2-mini.png', {
+        this.load.spritesheet(SPRITES.PLAYER, 'src/assets/characters/frog-sprite.png', {
             frameWidth: SIZES.PLAYER.WIDTH,
             frameHeight: SIZES.PLAYER.HEIGHT,
         })
+
+        this.load.image(SPRITES.BULLET, 'src/assets/bullets/bullet.png')
+        this.load.image(SPRITES.REVOLVER, 'src/assets/weapons/revolver.png')
     }
 
     create () {
@@ -26,6 +29,9 @@ export class Level extends Phaser.Scene {
         const wallsLayer = map.createLayer(LAYERS.WALLS, tileset, 0, 0)
 
         this.player = new Player(this, 400, 300, SPRITES.PLAYER);
+
+        this.cameras.main.startFollow(this.player)
+        this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels)
     }
 
     update(_: number, delta: number) {
